@@ -1,0 +1,545 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "cupertinocn",
+  "homepage": "https://github.com/vantezzen/cupertinocn",
+  "items": [
+    {
+      "name": "cupertino-style",
+      "type": "registry:ui",
+      "title": "Cupertino styles",
+      "description": "iOS tokens mapped onto the shadcn/ui theme variables, the Liquid Glass material, control geometry, motion, and accessible fallbacks.",
+      "files": [
+        {
+          "path": "src/registry/ui/cupertino.css",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [],
+      "cssVars": {
+        "light": {
+          "primary": "#0088ff",
+          "primary-foreground": "#fff",
+          "destructive": "#ff383c",
+          "foreground": "#000",
+          "muted": "#f2f2f7",
+          "muted-foreground": "rgb(60 60 67 / 60%)",
+          "border": "rgb(60 60 67 / 29%)",
+          "card": "#fff",
+          "card-foreground": "#000",
+          "popover": "#fff",
+          "popover-foreground": "#000",
+          "secondary": "#f2f2f7",
+          "secondary-foreground": "#000"
+        },
+        "dark": {
+          "primary": "#0091ff",
+          "primary-foreground": "#fff",
+          "destructive": "#ff4245",
+          "foreground": "#fff",
+          "muted": "#000",
+          "muted-foreground": "rgb(235 235 245 / 60%)",
+          "border": "rgb(84 84 88 / 60%)",
+          "card": "#1c1c1e",
+          "card-foreground": "#fff",
+          "popover": "#1c1c1e",
+          "popover-foreground": "#fff",
+          "secondary": "#1c1c1e",
+          "secondary-foreground": "#fff"
+        }
+      }
+    },
+    {
+      "name": "tab-gestures",
+      "type": "registry:ui",
+      "title": "Tab gestures",
+      "description": "Pointer scrubbing shared by tab bars and segmented controls.",
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "src/registry/ui/tab-gestures.ts",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "action-sheet",
+      "type": "registry:ui",
+      "title": "Action Sheet",
+      "description": "iOS-style action sheet with accessible React composition.",
+      "dependencies": ["@base-ui/react", "cn"],
+      "registryDependencies": [
+        "vantezzen/cupertinocn/cupertino-style",
+        "vantezzen/cupertinocn/liquid-glass"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/action-sheet.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "title": "Alert Dialog",
+      "description": "iOS-style alert dialog with accessible React composition.",
+      "dependencies": ["@base-ui/react", "cn"],
+      "registryDependencies": [
+        "vantezzen/cupertinocn/button",
+        "vantezzen/cupertinocn/cupertino-style",
+        "vantezzen/cupertinocn/liquid-glass"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/alert-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "all",
+      "type": "registry:item",
+      "title": "All Cupertino components",
+      "description": "The complete collection with shared material styles.",
+      "registryDependencies": [
+        "vantezzen/cupertinocn/cupertino-style",
+        "vantezzen/cupertinocn/tab-gestures",
+        "vantezzen/cupertinocn/action-sheet",
+        "vantezzen/cupertinocn/alert-dialog",
+        "vantezzen/cupertinocn/app-shell",
+        "vantezzen/cupertinocn/badge",
+        "vantezzen/cupertinocn/button",
+        "vantezzen/cupertinocn/checkbox",
+        "vantezzen/cupertinocn/drawer",
+        "vantezzen/cupertinocn/dropdown-menu",
+        "vantezzen/cupertinocn/input",
+        "vantezzen/cupertinocn/liquid-glass",
+        "vantezzen/cupertinocn/list",
+        "vantezzen/cupertinocn/navigation-bar",
+        "vantezzen/cupertinocn/page-control",
+        "vantezzen/cupertinocn/popover",
+        "vantezzen/cupertinocn/progress",
+        "vantezzen/cupertinocn/radio-group",
+        "vantezzen/cupertinocn/search-field",
+        "vantezzen/cupertinocn/select",
+        "vantezzen/cupertinocn/slider",
+        "vantezzen/cupertinocn/spinner",
+        "vantezzen/cupertinocn/stepper",
+        "vantezzen/cupertinocn/switch",
+        "vantezzen/cupertinocn/tab-bar",
+        "vantezzen/cupertinocn/tabs",
+        "vantezzen/cupertinocn/textarea",
+        "vantezzen/cupertinocn/toast",
+        "vantezzen/cupertinocn/toolbar"
+      ]
+    },
+    {
+      "name": "app-shell",
+      "type": "registry:ui",
+      "title": "App Shell",
+      "description": "iOS-style master-detail navigation: a section list beside its pages, or a list that pushes pages in on phones.",
+      "dependencies": ["cn", "lucide-react"],
+      "registryDependencies": [
+        "vantezzen/cupertinocn/cupertino-style",
+        "vantezzen/cupertinocn/navigation-bar"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/app-shell.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Drop-in for shadcn/ui Badge with iOS colors.",
+      "dependencies": ["class-variance-authority", "cn"],
+      "registryDependencies": ["vantezzen/cupertinocn/cupertino-style"],
+      "files": [
+        {
+          "path": "src/registry/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "iOS-style button with accessible React composition.",
+      "dependencies": ["@base-ui/react", "class-variance-authority", "cn"],
+      "registryDependencies": [
+        "vantezzen/cupertinocn/cupertino-style",
+        "vantezzen/cupertinocn/liquid-glass"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "iOS-style checkbox with accessible React composition.",
+      "dependencies": ["@base-ui/react", "cn", "lucide-react"],
+      "registryDependencies": ["vantezzen/cupertinocn/cupertino-style"],
+      "files": [
+        {
+          "path": "src/registry/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "drawer",
+      "type": "registry:ui",
+      "title": "Drawer",
+      "description": "Drop-in for shadcn/ui Drawer: an iOS bottom sheet on opaque glass with snap points.",
+      "dependencies": ["@base-ui/react", "cn"],
+      "registryDependencies": [
+        "vantezzen/cupertinocn/cupertino-style",
+        "vantezzen/cupertinocn/liquid-glass"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/drawer.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "Dropdown Menu",
+      "description": "Drop-in for shadcn/ui DropdownMenu: an iOS context menu on opaque glass.",
+      "dependencies": ["@base-ui/react", "cn", "lucide-react"],
+      "registryDependencies": [
+        "vantezzen/cupertinocn/cupertino-style",
+        "vantezzen/cupertinocn/liquid-glass"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/dropdown-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Drop-in for shadcn/ui Input: a glass text field.",
+      "dependencies": ["cn"],
+      "registryDependencies": [
+        "vantezzen/cupertinocn/cupertino-style",
+        "vantezzen/cupertinocn/liquid-glass"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "liquid-glass",
+      "type": "registry:ui",
+      "title": "Liquid Glass",
+      "description": "iOS-style liquid glass with accessible React composition.",
+      "dependencies": ["cn"],
+      "registryDependencies": ["vantezzen/cupertinocn/cupertino-style"],
+      "files": [
+        {
+          "path": "src/registry/ui/liquid-glass.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/registry/ui/glass-optics.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "list",
+      "type": "registry:ui",
+      "title": "List",
+      "description": "iOS-style list with accessible React composition.",
+      "dependencies": ["cn"],
+      "registryDependencies": ["vantezzen/cupertinocn/cupertino-style"],
+      "files": [
+        {
+          "path": "src/registry/ui/list.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "navigation-bar",
+      "type": "registry:ui",
+      "title": "Navigation Bar",
+      "description": "iOS-style navigation bar with accessible React composition.",
+      "dependencies": ["cn", "lucide-react"],
+      "registryDependencies": [
+        "vantezzen/cupertinocn/button",
+        "vantezzen/cupertinocn/cupertino-style"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/navigation-bar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "page-control",
+      "type": "registry:ui",
+      "title": "Page Control",
+      "description": "iOS-style page control with accessible React composition.",
+      "dependencies": ["cn"],
+      "registryDependencies": ["vantezzen/cupertinocn/cupertino-style"],
+      "files": [
+        {
+          "path": "src/registry/ui/page-control.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "iOS-style popover with accessible React composition.",
+      "dependencies": ["@base-ui/react", "cn"],
+      "registryDependencies": [
+        "vantezzen/cupertinocn/cupertino-style",
+        "vantezzen/cupertinocn/liquid-glass"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "iOS-style progress with accessible React composition.",
+      "dependencies": ["@base-ui/react", "cn"],
+      "registryDependencies": ["vantezzen/cupertinocn/cupertino-style"],
+      "files": [
+        {
+          "path": "src/registry/ui/progress.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "Radio Group",
+      "description": "iOS-style radio group with accessible React composition.",
+      "dependencies": ["@base-ui/react", "cn"],
+      "registryDependencies": ["vantezzen/cupertinocn/cupertino-style"],
+      "files": [
+        {
+          "path": "src/registry/ui/radio-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "search-field",
+      "type": "registry:ui",
+      "title": "Search Field",
+      "description": "iOS-style search field with accessible React composition.",
+      "dependencies": ["cn", "lucide-react"],
+      "registryDependencies": [
+        "vantezzen/cupertinocn/cupertino-style",
+        "vantezzen/cupertinocn/liquid-glass"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/search-field.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "iOS-style select with accessible React composition.",
+      "dependencies": ["@base-ui/react", "cn", "lucide-react"],
+      "registryDependencies": [
+        "vantezzen/cupertinocn/cupertino-style",
+        "vantezzen/cupertinocn/liquid-glass"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "iOS-style slider with accessible React composition.",
+      "dependencies": ["@base-ui/react", "cn", "motion"],
+      "registryDependencies": [
+        "vantezzen/cupertinocn/cupertino-style",
+        "vantezzen/cupertinocn/liquid-glass"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/slider.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "spinner",
+      "type": "registry:ui",
+      "title": "Spinner",
+      "description": "iOS-style spinner with accessible React composition.",
+      "dependencies": ["cn"],
+      "registryDependencies": ["vantezzen/cupertinocn/cupertino-style"],
+      "files": [
+        {
+          "path": "src/registry/ui/spinner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "stepper",
+      "type": "registry:ui",
+      "title": "Stepper",
+      "description": "iOS-style stepper with accessible React composition.",
+      "dependencies": ["@base-ui/react", "cn", "lucide-react"],
+      "registryDependencies": [
+        "vantezzen/cupertinocn/cupertino-style",
+        "vantezzen/cupertinocn/liquid-glass"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/stepper.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "iOS-style switch with accessible React composition.",
+      "dependencies": ["@base-ui/react", "cn"],
+      "registryDependencies": [
+        "vantezzen/cupertinocn/cupertino-style",
+        "vantezzen/cupertinocn/liquid-glass"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/switch.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tab-bar",
+      "type": "registry:ui",
+      "title": "Tab Bar",
+      "description": "iOS-style tab bar with accessible React composition.",
+      "dependencies": ["@base-ui/react", "cn"],
+      "registryDependencies": [
+        "vantezzen/cupertinocn/cupertino-style",
+        "vantezzen/cupertinocn/liquid-glass",
+        "vantezzen/cupertinocn/tab-gestures"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/tab-bar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Drop-in for shadcn/ui Tabs: an iOS segmented control with a glass pill that follows a drag.",
+      "dependencies": ["@base-ui/react", "class-variance-authority", "cn"],
+      "registryDependencies": [
+        "vantezzen/cupertinocn/cupertino-style",
+        "vantezzen/cupertinocn/liquid-glass",
+        "vantezzen/cupertinocn/tab-gestures"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "Drop-in for shadcn/ui Textarea: a glass text area.",
+      "dependencies": ["cn"],
+      "registryDependencies": [
+        "vantezzen/cupertinocn/cupertino-style",
+        "vantezzen/cupertinocn/liquid-glass"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/textarea.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "title": "Toast",
+      "description": "iOS-style toast with accessible React composition.",
+      "dependencies": ["@base-ui/react", "cn", "lucide-react"],
+      "registryDependencies": [
+        "vantezzen/cupertinocn/cupertino-style",
+        "vantezzen/cupertinocn/liquid-glass"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/toast.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toolbar",
+      "type": "registry:ui",
+      "title": "Toolbar",
+      "description": "iOS-style toolbar with accessible React composition.",
+      "dependencies": ["@base-ui/react", "cn"],
+      "registryDependencies": [
+        "vantezzen/cupertinocn/cupertino-style",
+        "vantezzen/cupertinocn/liquid-glass"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/toolbar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
+}
