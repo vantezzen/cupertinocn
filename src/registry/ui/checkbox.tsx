@@ -12,12 +12,12 @@ function Checkbox({ className, indeterminate, ...props }: CheckboxPrimitive.Root
       data-slot="checkbox"
       indeterminate={indeterminate}
       className={cn(
-        "cn-ios cn-choice relative flex size-[22px] shrink-0 items-center justify-center rounded-full border-[1.5px] border-[var(--ios-tertiary)] bg-transparent text-white after:absolute after:-inset-3 data-checked:border-primary data-checked:bg-primary data-indeterminate:border-primary data-indeterminate:bg-primary data-disabled:opacity-40",
+        "cupertino cupertino-choice relative flex size-[22px] shrink-0 items-center justify-center rounded-full border-[1.5px] border-[var(--ios-tertiary)] bg-transparent text-white after:absolute after:-inset-3 data-checked:border-primary data-checked:bg-primary data-indeterminate:border-primary data-indeterminate:bg-primary data-disabled:opacity-40",
         className,
       )}
       {...props}
     >
-      <CheckboxPrimitive.Indicator className="cn-choice-indicator flex">
+      <CheckboxPrimitive.Indicator className="cupertino-choice-indicator flex">
         {indeterminate ? (
           <Minus className="size-3.5" strokeWidth={3} />
         ) : (

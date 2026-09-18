@@ -22,7 +22,10 @@ function PageControl({
     <nav
       aria-label="Pages"
       data-slot="page-control"
-      className={cn("cn-ios inline-flex items-center justify-center rounded-full px-1", className)}
+      className={cn(
+        "cupertino inline-flex items-center justify-center rounded-full px-1",
+        className,
+      )}
       {...props}
     >
       {Array.from({ length: Math.max(0, count) }, (_, index) => (
@@ -36,7 +39,7 @@ function PageControl({
         >
           <span
             className={cn(
-              "cn-page-dot size-[7px] rounded-full",
+              "cupertino-page-dot size-[7px] rounded-full",
               index === value ? "bg-foreground" : "bg-[var(--ios-tertiary)]",
             )}
           />

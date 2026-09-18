@@ -12,7 +12,7 @@ function Progress({ className, children, ...props }: ProgressPrimitive.Root.Prop
   return (
     <ProgressPrimitive.Root
       data-slot="progress"
-      className={cn("cn-ios flex w-full flex-wrap gap-2", className)}
+      className={cn("cupertino flex w-full flex-wrap gap-2", className)}
       {...props}
     >
       {children}

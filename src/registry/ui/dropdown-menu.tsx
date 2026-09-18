@@ -21,7 +21,7 @@ function DropdownMenuTrigger({ ...props }: MenuPrimitive.Trigger.Props) {
 }
 
 const panelClass =
-  "cn-ios cn-menu cn-panel max-h-[var(--available-height)] min-w-56 overflow-y-auto rounded-[26px] p-1.5 text-foreground outline-none"
+  "cupertino cupertino-menu cupertino-panel max-h-[var(--available-height)] min-w-56 overflow-y-auto rounded-[26px] p-1.5 text-foreground outline-none"
 
 type MenuContentProps = MenuPrimitive.Popup.Props &
   Pick<MenuPrimitive.Positioner.Props, "side" | "align" | "sideOffset" | "alignOffset">

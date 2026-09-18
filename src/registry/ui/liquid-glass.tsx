@@ -384,19 +384,19 @@ function GlassSurface({
       data-slot="glass-surface"
       data-variant={variant}
       data-lens={lens ? "" : undefined}
-      className={cn("cn-glass-surface", className)}
+      className={cn("cupertino-glass-surface", className)}
     >
       {lens ? (
-        <span ref={layer} className="cn-glass-refract">
+        <span ref={layer} className="cupertino-glass-refract">
           {refract}
         </span>
       ) : (
-        <span ref={backdrop} className="cn-glass-backdrop" />
+        <span ref={backdrop} className="cupertino-glass-backdrop" />
       )}
-      <span className="cn-glass-wash" />
-      <span className="cn-glass-rim" />
-      {interactive && <span className="cn-glass-light" />}
-      <svg aria-hidden="true" focusable="false" className="cn-glass-defs">
+      <span className="cupertino-glass-wash" />
+      <span className="cupertino-glass-rim" />
+      {interactive && <span className="cupertino-glass-light" />}
+      <svg aria-hidden="true" focusable="false" className="cupertino-glass-defs">
         <filter
           ref={filter}
           colorInterpolationFilters="sRGB"
@@ -548,7 +548,7 @@ function LiquidGlass({
       data-variant={variant}
       data-interactive={interactive || undefined}
       className={cn(
-        "cn-ios cn-glass relative isolate rounded-full text-foreground shadow-[var(--glass-shadow)]",
+        "cupertino cupertino-glass relative isolate rounded-full text-foreground shadow-[var(--glass-shadow)]",
         interactive && "cursor-pointer",
         className,
       )}

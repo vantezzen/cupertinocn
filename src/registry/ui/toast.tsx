@@ -27,7 +27,7 @@ function Toaster({
     <ToastPrimitive.Provider toastManager={toastManager} timeout={timeout} {...props}>
       {children}
       <ToastPrimitive.Portal>
-        <ToastPrimitive.Viewport className="cn-ios fixed inset-x-4 top-[max(16px,env(safe-area-inset-top))] z-100 mx-auto flex max-w-sm flex-col gap-2 outline-none">
+        <ToastPrimitive.Viewport className="cupertino fixed inset-x-4 top-[max(16px,env(safe-area-inset-top))] z-100 mx-auto flex max-w-sm flex-col gap-2 outline-none">
           <ToastList />
         </ToastPrimitive.Viewport>
       </ToastPrimitive.Portal>
@@ -42,7 +42,7 @@ function ToastList() {
       key={item.id}
       toast={item}
       data-slot="toast"
-      className="cn-toast cn-panel cn-material flex items-start gap-3 rounded-[26px] p-4 text-foreground"
+      className="cupertino-toast cupertino-panel cupertino-material flex items-start gap-3 rounded-[26px] p-4 text-foreground"
     >
       <GlassSurface variant="opaque" interactive={false} />
       <ToastPrimitive.Content className="min-w-0 flex-1">
@@ -51,7 +51,7 @@ function ToastList() {
       </ToastPrimitive.Content>
       <ToastPrimitive.Close
         aria-label="Dismiss notification"
-        className="cn-dim relative flex size-6 shrink-0 items-center justify-center rounded-full bg-[var(--ios-fill-secondary)] text-muted-foreground after:absolute after:-inset-2"
+        className="cupertino-dim relative flex size-6 shrink-0 items-center justify-center rounded-full bg-[var(--ios-fill-secondary)] text-muted-foreground after:absolute after:-inset-2"
       >
         <X className="size-3.5" />
       </ToastPrimitive.Close>

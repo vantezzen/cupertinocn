@@ -5,7 +5,7 @@ import "./cupertino.css"
 
 /** Drop-in for shadcn/ui Badge. `destructive` is the red iOS notification count. */
 const badgeVariants = cva(
-  "cn-ios inline-flex h-5 min-w-5 shrink-0 items-center justify-center gap-1 rounded-full px-1.5 text-[13px] leading-none font-semibold tabular-nums [&>svg]:size-3",
+  "cupertino inline-flex h-5 min-w-5 shrink-0 items-center justify-center gap-1 rounded-full px-1.5 text-[13px] leading-none font-semibold tabular-nums [&>svg]:size-3",
   {
     variants: {
       variant: {

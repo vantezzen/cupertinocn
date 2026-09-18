@@ -129,15 +129,15 @@ function Switch({
     <SwitchPrimitive.Root
       data-slot="switch"
       data-size={size}
-      className={cn("cn-ios cn-switch", className)}
+      className={cn("cupertino cupertino-switch", className)}
       {...mergeProps(gestures, props)}
     >
-      <SwitchPrimitive.Thumb data-slot="switch-thumb" className="cn-switch-thumb">
+      <SwitchPrimitive.Thumb data-slot="switch-thumb" className="cupertino-switch-thumb">
         <GlassSurface
           variant="clear"
           strength={0.6}
           interactive={false}
-          refract={<span aria-hidden="true" className="cn-switch-copy" />}
+          refract={<span aria-hidden="true" className="cupertino-switch-copy" />}
         />
       </SwitchPrimitive.Thumb>
     </SwitchPrimitive.Root>

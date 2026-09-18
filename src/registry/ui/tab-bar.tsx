@@ -11,13 +11,13 @@ function TabBar({ className, ...props }: TabsPrimitive.Root.Props) {
   return (
     <TabsPrimitive.Root
       data-slot="tab-bar"
-      className={cn("cn-ios text-foreground", className)}
+      className={cn("cupertino text-foreground", className)}
       {...props}
     />
   )
 }
 
-const listClass = "cn-tab-list relative flex min-h-16 items-stretch p-1"
+const listClass = "cupertino-tab-list relative flex min-h-16 items-stretch p-1"
 
 /**
  * A floating glass bar. `className` shapes and positions the bar. The selection lens springs
@@ -39,7 +39,7 @@ function TabBarList({
         className={listClass}
         {...mergeProps(gestures, props)}
       >
-        <TabsPrimitive.Indicator renderBeforeHydration className="cn-tab-indicator">
+        <TabsPrimitive.Indicator renderBeforeHydration className="cupertino-tab-indicator">
           <GlassSurface
             variant="clear"
             strength={0.9}
@@ -50,7 +50,7 @@ function TabBarList({
                 aria-hidden="true"
                 inert
                 data-glass-copy=""
-                className={cn("cn-tab-copy", listClass)}
+                className={cn("cupertino-tab-copy", listClass)}
                 render={<TabsPrimitive.List />}
               >
                 {children}
@@ -69,7 +69,7 @@ function TabBarTrigger({ className, ...props }: TabsPrimitive.Tab.Props) {
     <TabsPrimitive.Tab
       data-slot="tab-bar-trigger"
       className={cn(
-        "cn-tab-trigger relative z-1 flex min-w-14 flex-1 flex-col items-center justify-center gap-[3px] rounded-full px-2 text-[10px] leading-3 font-semibold data-disabled:opacity-40 [&_svg]:size-6",
+        "cupertino-tab-trigger relative z-1 flex min-w-14 flex-1 flex-col items-center justify-center gap-[3px] rounded-full px-2 text-[10px] leading-3 font-semibold data-disabled:opacity-40 [&_svg]:size-6",
         className,
       )}
       {...props}

@@ -291,7 +291,7 @@ export function GlassPlayground({ compact = false }: { compact?: boolean }) {
 function AlertDemo() {
   return (
     <AlertDialog>
-      <LiquidGlass className="alert-specimen cn-panel">
+      <LiquidGlass className="alert-specimen cupertino-panel">
         <div className="alert-specimen-copy">
           <strong>Allow notifications?</strong>
           <p>

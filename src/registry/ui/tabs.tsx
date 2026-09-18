@@ -15,13 +15,13 @@ function Tabs({ className, orientation = "horizontal", ...props }: TabsPrimitive
       data-slot="tabs"
       data-orientation={orientation}
       orientation={orientation}
-      className={cn("cn-ios text-foreground", className)}
+      className={cn("cupertino text-foreground", className)}
       {...props}
     />
   )
 }
 
-const listClass = "cn-segment-list relative flex min-h-8 items-stretch rounded-full p-0.5"
+const listClass = "cupertino-segment-list relative flex min-h-8 items-stretch rounded-full p-0.5"
 
 const tabsListVariants = cva(listClass, {
   variants: {
@@ -54,7 +54,7 @@ function TabsList({
       className={cn(tabsListVariants({ variant }), className)}
       {...mergeProps(gestures, props)}
     >
-      <TabsPrimitive.Indicator renderBeforeHydration className="cn-segment-indicator">
+      <TabsPrimitive.Indicator renderBeforeHydration className="cupertino-segment-indicator">
         {variant === "default" && (
           <GlassSurface
             variant="regular"
@@ -66,7 +66,7 @@ function TabsList({
                 aria-hidden="true"
                 inert
                 data-glass-copy=""
-                className={cn("cn-segment-copy", listClass, className)}
+                className={cn("cupertino-segment-copy", listClass, className)}
                 render={<TabsPrimitive.List />}
               >
                 {children}
@@ -85,7 +85,7 @@ function TabsTrigger({ className, ...props }: TabsPrimitive.Tab.Props) {
     <TabsPrimitive.Tab
       data-slot="tabs-trigger"
       className={cn(
-        "cn-segment-trigger relative z-1 flex min-w-0 flex-1 items-center justify-center gap-1.5 rounded-full px-3 text-[13px] leading-[18px] data-disabled:opacity-40 [&_svg]:size-4 [&_svg]:shrink-0",
+        "cupertino-segment-trigger relative z-1 flex min-w-0 flex-1 items-center justify-center gap-1.5 rounded-full px-3 text-[13px] leading-[18px] data-disabled:opacity-40 [&_svg]:size-4 [&_svg]:shrink-0",
         className,
       )}
       {...props}

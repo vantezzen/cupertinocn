@@ -9,7 +9,7 @@ function List({ className, ...props }: React.ComponentProps<"ul">) {
     <ul
       data-slot="list"
       className={cn(
-        "cn-ios overflow-hidden rounded-[26px] bg-card text-foreground shadow-[0_0_0_0.5px_rgb(0_0_0/4%)]",
+        "cupertino overflow-hidden rounded-[26px] bg-card text-foreground shadow-[0_0_0_0.5px_rgb(0_0_0/4%)]",
         className,
       )}
       {...props}
@@ -60,7 +60,7 @@ function ListHeader({ className, ...props }: React.ComponentProps<"h3">) {
     <h3
       data-slot="list-header"
       className={cn(
-        "cn-ios px-4 pt-5 pb-2 text-[13px] leading-[18px] text-muted-foreground uppercase tracking-[0.02em]",
+        "cupertino px-4 pt-5 pb-2 text-[13px] leading-[18px] text-muted-foreground uppercase tracking-[0.02em]",
         className,
       )}
       {...props}
@@ -71,7 +71,10 @@ function ListFooter({ className, ...props }: React.ComponentProps<"p">) {
   return (
     <p
       data-slot="list-footer"
-      className={cn("cn-ios px-4 pt-2 text-[13px] leading-[18px] text-muted-foreground", className)}
+      className={cn(
+        "cupertino px-4 pt-2 text-[13px] leading-[18px] text-muted-foreground",
+        className,
+      )}
       {...props}
     />
   )

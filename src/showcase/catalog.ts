@@ -111,7 +111,7 @@ export const catalog: CatalogEntry[] = [
         title: "Material inside your own control",
         description:
           "GlassSurface adds the layers to any positioned element with a border radius. The element becomes a glass host and gets the press response.",
-        code: '<button className="cn-material relative rounded-full px-5 py-3">\n  <GlassSurface />\n  Save\n</button>',
+        code: '<button className="cupertino-material relative rounded-full px-5 py-3">\n  <GlassSurface />\n  Save\n</button>',
       },
       {
         title: "Refracting a known layer",

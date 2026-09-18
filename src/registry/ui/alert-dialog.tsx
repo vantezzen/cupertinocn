@@ -17,7 +17,7 @@ function AlertDialogOverlay({ className, ...props }: AlertDialogPrimitive.Backdr
     <AlertDialogPrimitive.Backdrop
       data-slot="alert-dialog-overlay"
       className={cn(
-        "cn-ios fixed inset-0 z-50 bg-black/24 transition-opacity duration-[240ms] data-starting-style:opacity-0 data-ending-style:opacity-0",
+        "cupertino fixed inset-0 z-50 bg-black/24 transition-opacity duration-[240ms] data-starting-style:opacity-0 data-ending-style:opacity-0",
         className,
       )}
       {...props}
@@ -47,7 +47,7 @@ function AlertDialogContent({ className, ...props }: AlertDialogPrimitive.Popup.
         render={<LiquidGlass variant="opaque" interactive={false} />}
         data-slot="alert-dialog-content"
         className={cn(
-          "cn-ios cn-panel cn-alert fixed top-1/2 left-1/2 z-51 max-h-[calc(100dvh-40px)] w-[300px] max-w-[calc(100vw-40px)] overflow-y-auto rounded-[36px] p-3.5 text-foreground outline-none",
+          "cupertino cupertino-panel cupertino-alert fixed top-1/2 left-1/2 z-51 max-h-[calc(100dvh-40px)] w-[300px] max-w-[calc(100vw-40px)] overflow-y-auto rounded-[36px] p-3.5 text-foreground outline-none",
           className,
         )}
         {...props}
@@ -82,7 +82,7 @@ function AlertDialogFooter({ className, ...props }: React.ComponentProps<"div">)
   return (
     <div
       data-slot="alert-dialog-footer"
-      className={cn("cn-alert-footer flex gap-2 [&>*]:min-w-0 [&>*]:flex-1", className)}
+      className={cn("cupertino-alert-footer flex gap-2 [&>*]:min-w-0 [&>*]:flex-1", className)}
       {...props}
     />
   )

@@ -14,7 +14,7 @@ function Textarea({ className, ...props }: React.ComponentProps<"textarea">) {
     <span
       data-slot="textarea-wrapper"
       className={cn(
-        "cn-ios cn-field relative flex min-h-28 w-full min-w-0 rounded-[22px] text-[17px] leading-[22px] text-foreground",
+        "cupertino cupertino-field relative flex min-h-28 w-full min-w-0 rounded-[22px] text-[17px] leading-[22px] text-foreground",
         className,
       )}
     >

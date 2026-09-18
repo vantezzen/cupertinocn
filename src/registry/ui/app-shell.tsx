@@ -112,7 +112,7 @@ function AppShell({
         data-mobile={mobile || undefined}
         data-detail={mobile && effective !== null ? "" : undefined}
         className={cn(
-          "cn-ios cn-app-shell relative grid h-full min-h-0 overflow-hidden bg-muted text-foreground",
+          "cupertino cupertino-app-shell relative grid h-full min-h-0 overflow-hidden bg-muted text-foreground",
           className,
         )}
         {...props}
@@ -130,7 +130,7 @@ function AppShellList({ className, children, ...props }: React.ComponentProps<"n
     <nav
       data-slot="app-shell-list"
       className={cn(
-        "cn-app-shell-list min-h-0 overflow-y-auto bg-muted px-4 pb-6 [scrollbar-width:thin]",
+        "cupertino-app-shell-list min-h-0 overflow-y-auto bg-muted px-4 pb-6 [scrollbar-width:thin]",
         !mobile && "border-r-[0.5px] border-border",
         className,
       )}
@@ -288,7 +288,10 @@ function AppShellPage({
       data-slot="app-shell-page"
       role="region"
       aria-labelledby={headingId}
-      className={cn("cn-app-shell-page flex min-h-0 flex-col overflow-hidden bg-muted", className)}
+      className={cn(
+        "cupertino-app-shell-page flex min-h-0 flex-col overflow-hidden bg-muted",
+        className,
+      )}
       onPointerDown={(event) => {
         if (!shell.mobile || swipe.current || event.button !== 0) return
         const rect = event.currentTarget.getBoundingClientRect()

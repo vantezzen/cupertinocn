@@ -14,7 +14,7 @@ function Toolbar({
     <LiquidGlass variant="regular" interactive={false} className={className}>
       <ToolbarPrimitive.Root
         data-slot="toolbar"
-        className="cn-ios flex min-h-14 items-center gap-0.5 rounded-full p-1.5 text-foreground"
+        className="cupertino flex min-h-14 items-center gap-0.5 rounded-full p-1.5 text-foreground"
         {...props}
       />
     </LiquidGlass>
@@ -26,7 +26,7 @@ function ToolbarButton({ className, ...props }: ToolbarPrimitive.Button.Props) {
     <ToolbarPrimitive.Button
       data-slot="toolbar-button"
       className={cn(
-        "cn-press cn-toolbar-button flex size-11 items-center justify-center rounded-full data-disabled:opacity-35 [&_svg]:size-[22px]",
+        "cupertino-press cupertino-toolbar-button flex size-11 items-center justify-center rounded-full data-disabled:opacity-35 [&_svg]:size-[22px]",
         className,
       )}
       {...props}

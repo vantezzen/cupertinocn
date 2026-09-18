@@ -38,7 +38,7 @@ function SearchField({
     <div
       data-slot="search-field"
       className={cn(
-        "cn-ios cn-field relative flex min-h-11 items-center gap-2 rounded-full pr-3 pl-3.5 text-muted-foreground",
+        "cupertino cupertino-field relative flex min-h-11 items-center gap-2 rounded-full pr-3 pl-3.5 text-muted-foreground",
         className,
       )}
     >
@@ -63,7 +63,7 @@ function SearchField({
             update("")
             input.current?.focus()
           }}
-          className="cn-dim relative flex size-5 shrink-0 items-center justify-center rounded-full bg-[var(--ios-tertiary)] text-[var(--ios-surface)] after:absolute after:-inset-3"
+          className="cupertino-dim relative flex size-5 shrink-0 items-center justify-center rounded-full bg-[var(--ios-tertiary)] text-[var(--ios-surface)] after:absolute after:-inset-3"
         >
           <X className="size-3" strokeWidth={3} />
         </button>

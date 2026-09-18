@@ -14,7 +14,7 @@ function Input({ className, type = "text", ...props }: React.ComponentProps<"inp
     <span
       data-slot="input-wrapper"
       className={cn(
-        "cn-ios cn-field relative flex min-h-11 w-full min-w-0 rounded-full text-[17px] leading-[22px] text-foreground",
+        "cupertino cupertino-field relative flex min-h-11 w-full min-w-0 rounded-full text-[17px] leading-[22px] text-foreground",
         className,
       )}
     >

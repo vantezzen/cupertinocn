@@ -12,7 +12,7 @@ function Spinner({
       data-slot="spinner"
       role="status"
       aria-label={label}
-      className={cn("cn-ios cn-spinner text-muted-foreground", className)}
+      className={cn("cupertino cupertino-spinner text-muted-foreground", className)}
       {...props}
     >
       {Array.from({ length: 12 }, (_, i) => (

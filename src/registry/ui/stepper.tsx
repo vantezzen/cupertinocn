@@ -7,7 +7,7 @@ import { GlassSurface } from "./liquid-glass"
 import "./cupertino.css"
 
 const stepClass =
-  "cn-stepper-button relative flex h-11 w-12 items-center justify-center text-foreground data-disabled:opacity-30 [&_svg]:size-5"
+  "cupertino-stepper-button relative flex h-11 w-12 items-center justify-center text-foreground data-disabled:opacity-30 [&_svg]:size-5"
 
 type StepperProps = NumberField.Root.Props & {
   /** Accessible name of the decrement button. Defaults to "Decrease". */
@@ -30,14 +30,14 @@ function Stepper({
   return (
     <NumberField.Root
       data-slot="stepper"
-      className={cn("cn-ios inline-flex items-center gap-3 text-foreground", className)}
+      className={cn("cupertino inline-flex items-center gap-3 text-foreground", className)}
       {...props}
     >
       <NumberField.Input
         aria-label={label ?? "Value"}
         className="w-12 bg-transparent text-center text-[17px] tabular-nums outline-none"
       />
-      <NumberField.Group className="cn-material flex items-center rounded-full">
+      <NumberField.Group className="cupertino-material flex items-center rounded-full">
         <GlassSurface variant="regular" />
         <NumberField.Decrement
           aria-label={decrementLabel}

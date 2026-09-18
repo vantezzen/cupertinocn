@@ -11,7 +11,7 @@ function NavigationBar({ className, ...props }: React.ComponentProps<"nav">) {
     <nav
       data-slot="navigation-bar"
       className={cn(
-        "cn-ios flex min-h-14 items-center justify-between gap-3 px-4 text-foreground",
+        "cupertino flex min-h-14 items-center justify-between gap-3 px-4 text-foreground",
         className,
       )}
       {...props}
@@ -53,7 +53,7 @@ function LargeTitle({ className, ...props }: React.ComponentProps<"h1">) {
     <h1
       data-slot="large-title"
       className={cn(
-        "cn-ios px-4 pt-1 pb-2 text-[34px] leading-[41px] font-bold tracking-[-0.4px] text-foreground",
+        "cupertino px-4 pt-1 pb-2 text-[34px] leading-[41px] font-bold tracking-[-0.4px] text-foreground",
         className,
       )}
       {...props}

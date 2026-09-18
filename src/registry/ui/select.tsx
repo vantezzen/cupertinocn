@@ -21,7 +21,7 @@ function SelectTrigger({
       data-slot="select-trigger"
       data-size={size}
       className={cn(
-        "cn-ios cn-press cn-material flex min-h-11 min-w-36 items-center justify-between gap-3 rounded-full pr-3.5 pl-4 text-[17px] text-foreground data-disabled:opacity-40 data-[size=sm]:min-h-8 data-[size=sm]:min-w-28 data-[size=sm]:pl-3.5 data-[size=sm]:text-[15px]",
+        "cupertino cupertino-press cupertino-material flex min-h-11 min-w-36 items-center justify-between gap-3 rounded-full pr-3.5 pl-4 text-[17px] text-foreground data-disabled:opacity-40 data-[size=sm]:min-h-8 data-[size=sm]:min-w-28 data-[size=sm]:pl-3.5 data-[size=sm]:text-[15px]",
         className,
       )}
       {...props}
@@ -42,7 +42,7 @@ function SelectContent({ className, children, ...props }: SelectPrimitive.Popup.
           render={<LiquidGlass variant="opaque" interactive={false} />}
           data-slot="select-content"
           className={cn(
-            "cn-ios cn-menu cn-panel max-h-[var(--available-height)] min-w-[var(--anchor-width)] overflow-y-auto rounded-[24px] p-1.5 text-foreground outline-none",
+            "cupertino cupertino-menu cupertino-panel max-h-[var(--available-height)] min-w-[var(--anchor-width)] overflow-y-auto rounded-[24px] p-1.5 text-foreground outline-none",
             className,
           )}
           {...props}

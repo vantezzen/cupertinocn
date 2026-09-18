@@ -30,7 +30,7 @@ function PopoverContent({
           render={<LiquidGlass variant="opaque" interactive={false} />}
           data-slot="popover-content"
           className={cn(
-            "cn-ios cn-menu cn-panel max-h-[var(--available-height)] w-72 max-w-[calc(100vw-24px)] overflow-y-auto rounded-[28px] p-5 text-foreground outline-none",
+            "cupertino cupertino-menu cupertino-panel max-h-[var(--available-height)] w-72 max-w-[calc(100vw-24px)] overflow-y-auto rounded-[28px] p-5 text-foreground outline-none",
             className,
           )}
           {...props}

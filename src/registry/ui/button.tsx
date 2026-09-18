@@ -7,26 +7,28 @@ import { GlassSurface } from "./liquid-glass"
 import "./cupertino.css"
 
 const buttonVariants = cva(
-  "cn-ios inline-flex shrink-0 items-center justify-center gap-1.5 rounded-full text-[17px] leading-[22px] font-semibold select-none disabled:cursor-not-allowed disabled:opacity-40 [&_svg]:size-5 [&_svg]:shrink-0",
+  "cupertino inline-flex shrink-0 items-center justify-center gap-1.5 rounded-full text-[17px] leading-[22px] font-semibold select-none disabled:cursor-not-allowed disabled:opacity-40 [&_svg]:size-5 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
         /** Prominent glass in the accent color. */
-        default: "cn-press cn-material cn-button-prominent text-white",
+        default: "cupertino-press cupertino-material cupertino-button-prominent text-white",
         /** Gray fill, as in alerts and action sheets. */
-        secondary: "cn-press bg-[var(--ios-fill-secondary)] text-foreground",
+        secondary: "cupertino-press bg-[var(--ios-fill-secondary)] text-foreground",
         /** Hairline capsule on a transparent fill. */
         outline:
-          "cn-press bg-transparent text-foreground shadow-[inset_0_0_0_1px_var(--ios-separator)]",
-        destructive: "cn-press cn-material cn-button-prominent cn-button-destructive text-white",
+          "cupertino-press bg-transparent text-foreground shadow-[inset_0_0_0_1px_var(--ios-separator)]",
+        destructive:
+          "cupertino-press cupertino-material cupertino-button-prominent cupertino-button-destructive text-white",
         /** Plain accent text. */
-        ghost: "cn-dim bg-transparent text-primary",
+        ghost: "cupertino-dim bg-transparent text-primary",
         /** Accent text with an underline on hover, for inline actions. */
-        link: "cn-dim bg-transparent px-0 text-primary underline-offset-3 hover:underline",
+        link: "cupertino-dim bg-transparent px-0 text-primary underline-offset-3 hover:underline",
         /** cupertinocn only: accent text on a light accent fill. */
-        tinted: "cn-press bg-[color-mix(in_srgb,var(--ios-blue)_15%,transparent)] text-primary",
+        tinted:
+          "cupertino-press bg-[color-mix(in_srgb,var(--ios-blue)_15%,transparent)] text-primary",
         /** cupertinocn only: glass over the content behind it. */
-        glass: "cn-press cn-material text-foreground",
+        glass: "cupertino-press cupertino-material text-foreground",
       },
       size: {
         default: "min-h-11 px-5 py-2.5",

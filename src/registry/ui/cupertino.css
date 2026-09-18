@@ -234,14 +234,14 @@
   /* ---------------------------------------------------------------------------
    * Foundations
    * ------------------------------------------------------------------------ */
-  .cn-ios {
+  .cupertino {
     font-family: var(--ios-font);
     letter-spacing: -0.024em;
     -webkit-tap-highlight-color: transparent;
     -webkit-font-smoothing: antialiased;
   }
-  .cn-ios:focus-visible,
-  .cn-ios :focus-visible {
+  .cupertino:focus-visible,
+  .cupertino :focus-visible {
     outline: 3px solid color-mix(in srgb, var(--ios-blue) 75%, transparent);
     outline-offset: 3px;
   }
@@ -250,8 +250,8 @@
    * Press response shared by every glass host. GlassSurface writes --glass-pull-* and
    * --glass-stretch-* while the pointer is down; the host follows, stretches, and springs back.
    */
-  .cn-press,
-  .cn-glass,
+  .cupertino-press,
+  .cupertino-glass,
   [data-glass-host] {
     --glass-scale: 1;
     translate: var(--glass-pull-x, 0px) var(--glass-pull-y, 0px);
@@ -265,10 +265,10 @@
       color 160ms ease,
       box-shadow 260ms var(--ios-ease);
   }
-  .cn-press {
+  .cupertino-press {
     touch-action: manipulation;
   }
-  .cn-press:active:not(:disabled):not([data-disabled]),
+  .cupertino-press:active:not(:disabled):not([data-disabled]),
   [data-glass-host][data-glass-pressed]:not(:disabled):not([data-disabled]) {
     --glass-scale: 1.035;
     transition-duration: 140ms, 140ms, 160ms, 160ms, 160ms, 260ms;
@@ -278,21 +278,21 @@
     transition-duration: 0s, 0s, 160ms, 160ms, 160ms, 260ms;
   }
   /* Plain text controls dim instead. */
-  .cn-dim {
+  .cupertino-dim {
     touch-action: manipulation;
     transition: opacity 160ms ease;
   }
-  .cn-dim:active:not(:disabled):not([data-disabled]) {
+  .cupertino-dim:active:not(:disabled):not([data-disabled]) {
     opacity: 0.35;
     transition-duration: 40ms;
   }
 
-  .cn-material {
+  .cupertino-material {
     position: relative;
     isolation: isolate;
     color: var(--ios-label);
   }
-  .cn-glass[data-interactive][data-glass-pressed] {
+  .cupertino-glass[data-interactive][data-glass-pressed] {
     --glass-scale: 1.02;
     box-shadow: var(--glass-shadow-lifted);
   }
@@ -303,7 +303,7 @@
    * Layers, bottom to top: refracted copy (lens mode) or the blurred backdrop, wash, rim, light.
    * Consumers tune a surface with --glass-wash, --glass-blur, and --glass-saturate.
    * ------------------------------------------------------------------------ */
-  .cn-glass-surface {
+  .cupertino-glass-surface {
     --_wash: var(--glass-wash, var(--glass-regular-wash));
     --_blur: var(--glass-blur, 2px);
     --_saturate: var(--glass-saturate, 1.4);
@@ -323,24 +323,24 @@
    * inside the SVG filter and the filter region extends past the element, because Blink loses a
    * reference filter combined with blur() and drops backdrop-filter under an ancestor clip-path.
    */
-  .cn-glass-backdrop {
+  .cupertino-glass-backdrop {
     position: absolute;
     inset: 0;
     border-radius: inherit;
     -webkit-backdrop-filter: blur(var(--_blur)) saturate(var(--_saturate));
     backdrop-filter: blur(var(--_blur)) saturate(var(--_saturate));
   }
-  .cn-glass-backdrop[data-refraction] {
+  .cupertino-glass-backdrop[data-refraction] {
     -webkit-backdrop-filter: var(--glass-refraction);
     backdrop-filter: var(--glass-refraction);
   }
-  .cn-glass-surface[data-variant="opaque"] {
+  .cupertino-glass-surface[data-variant="opaque"] {
     --_wash: var(--glass-wash, var(--glass-opaque-wash));
     --_blur: var(--glass-blur, 20px);
     --_saturate: var(--glass-saturate, 1.6);
     --_rim: calc(var(--glass-rim-alpha) * 0.75);
   }
-  .cn-glass-surface[data-variant="clear"] {
+  .cupertino-glass-surface[data-variant="clear"] {
     --_wash: var(--glass-wash, var(--glass-clear-wash));
     --_blur: var(--glass-blur, 0px);
     --_saturate: var(--glass-saturate, 1.2);
@@ -349,14 +349,14 @@
    * Blink sizes the reference box of a CSS filter from the element's visual overflow, so the copy
    * inside must be clipped here or the map stretches across the whole copy instead of the lens.
    */
-  .cn-glass-refract {
+  .cupertino-glass-refract {
     position: absolute;
     inset: 0;
     border-radius: inherit;
     overflow: hidden;
     contain: paint;
   }
-  .cn-glass-wash {
+  .cupertino-glass-wash {
     position: absolute;
     inset: 0;
     border-radius: inherit;
@@ -364,7 +364,7 @@
     transition: background-color 200ms ease;
   }
   /* Thickness: light enters at the top-left edge and leaves at the bottom-right. */
-  .cn-glass-wash::after {
+  .cupertino-glass-wash::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -381,7 +381,7 @@
     box-shadow: inset 0 0 14px -6px var(--glass-shade);
   }
   /* Until the specular image exists, hard inset hairlines stand in for the rim light. */
-  .cn-glass-surface:not([data-specular]) > .cn-glass-wash::after {
+  .cupertino-glass-surface:not([data-specular]) > .cupertino-glass-wash::after {
     box-shadow:
       inset 1px 1.5px 2px -1px rgb(255 255 255 / calc(55% * var(--_rim))),
       inset -1px -1.5px 2px -1px rgb(255 255 255 / calc(30% * var(--_rim))),
@@ -391,7 +391,7 @@
    * Rim light. GlassSurface paints the generated specular image (glow, an edge band that faces the
    * light, and a hairline) through --glass-specular; until it exists, the wash hairlines stand in.
    */
-  .cn-glass-rim {
+  .cupertino-glass-rim {
     position: absolute;
     inset: 0;
     border-radius: inherit;
@@ -403,7 +403,7 @@
    * only: a mix-blend-mode here makes Chrome isolate the surface, and the backdrop filter next to
    * it then reads an empty group instead of the page.
    */
-  .cn-glass-light {
+  .cupertino-glass-light {
     position: absolute;
     inset: 0;
     border-radius: inherit;
@@ -418,11 +418,11 @@
     opacity: 0;
     transition: opacity 320ms ease;
   }
-  [data-glass-pressed] > .cn-glass-surface > .cn-glass-light {
+  [data-glass-pressed] > .cupertino-glass-surface > .cupertino-glass-light {
     opacity: 1;
     transition-duration: 90ms;
   }
-  .cn-glass-defs {
+  .cupertino-glass-defs {
     position: absolute;
     width: 0;
     height: 0;
@@ -437,63 +437,63 @@
   }
 
   /* Panels: menus, popovers, alerts, toasts. Opaque glass with a deeper shadow. */
-  .cn-panel {
+  .cupertino-panel {
     box-shadow: var(--glass-shadow-lifted);
   }
   /* Prominent buttons: the wash is the accent color. */
-  .cn-button-prominent > .cn-glass-surface {
+  .cupertino-button-prominent > .cupertino-glass-surface {
     --glass-wash: color-mix(in srgb, var(--ios-blue) 90%, transparent);
     --glass-blur: 6px;
   }
-  .cn-button-destructive > .cn-glass-surface {
+  .cupertino-button-destructive > .cupertino-glass-surface {
     --glass-wash: color-mix(in srgb, var(--ios-red) 90%, transparent);
   }
 
   /* ---------------------------------------------------------------------------
    * Text fields: glass capsules with a hairline.
    * ------------------------------------------------------------------------ */
-  .cn-field {
+  .cupertino-field {
     --field-ring: var(--ios-blue);
     box-shadow:
       inset 0 0 0 0.5px var(--ios-separator),
       inset 0 1px 2px rgb(0 0 0 / 5%);
     transition: box-shadow 180ms ease;
   }
-  .cn-field:focus-within {
+  .cupertino-field:focus-within {
     box-shadow:
       inset 0 0 0 0.5px color-mix(in srgb, var(--field-ring) 70%, transparent),
       0 0 0 3px color-mix(in srgb, var(--field-ring) 16%, transparent);
   }
-  .cn-field:has(:disabled) {
+  .cupertino-field:has(:disabled) {
     opacity: 0.4;
   }
-  .cn-field:has([aria-invalid="true"]) {
+  .cupertino-field:has([aria-invalid="true"]) {
     --field-ring: var(--ios-red);
   }
-  .cn-field > .cn-glass-surface {
+  .cupertino-field > .cupertino-glass-surface {
     --glass-wash: var(--ios-fill-quaternary);
     --glass-blur: 14px;
     --glass-saturate: 1.2;
   }
   /* Fields are wells, not slabs: no thickness shading, a fainter rim. */
-  .cn-field > .cn-glass-surface > .cn-glass-wash::after {
+  .cupertino-field > .cupertino-glass-surface > .cupertino-glass-wash::after {
     background: none;
     box-shadow: none;
   }
-  .cn-field > .cn-glass-surface > .cn-glass-rim {
+  .cupertino-field > .cupertino-glass-surface > .cupertino-glass-rim {
     opacity: calc(var(--_rim) * 0.5);
   }
-  .cn-field:focus-within > .cn-glass-surface {
+  .cupertino-field:focus-within > .cupertino-glass-surface {
     --glass-wash: rgb(var(--ios-glass-rgb) / 55%);
   }
 
   /* ---------------------------------------------------------------------------
    * Stepper: the whole capsule is pulled toward the pressed side.
    * ------------------------------------------------------------------------ */
-  .cn-stepper-button {
+  .cupertino-stepper-button {
     transition: opacity 160ms ease;
   }
-  .cn-stepper-button::before {
+  .cupertino-stepper-button::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -502,14 +502,14 @@
     opacity: 0;
     transition: opacity 260ms ease;
   }
-  .cn-stepper-button:active:not([data-disabled])::before {
+  .cupertino-stepper-button:active:not([data-disabled])::before {
     opacity: 1;
     transition-duration: 60ms;
   }
-  .cn-stepper-button:active:not([data-disabled]) > svg {
+  .cupertino-stepper-button:active:not([data-disabled]) > svg {
     scale: 0.86;
   }
-  .cn-stepper-button > svg {
+  .cupertino-stepper-button > svg {
     transition: scale 320ms var(--ios-spring-bounce);
   }
 
@@ -517,7 +517,7 @@
    * Switch: 64×28 track, 39×24 capsule thumb, 2px inset, 21px travel. `sm` is the same capsule
    * at three quarters. The thumb refracts a copy of the track, so the lens works in every browser.
    * ------------------------------------------------------------------------ */
-  .cn-switch {
+  .cupertino-switch {
     --switch-track: var(--ios-fill-secondary);
     --switch-x: 0px;
     --switch-track-w: 64px;
@@ -540,12 +540,12 @@
     touch-action: pan-y;
     transition: background-color 220ms ease;
   }
-  .cn-switch::after {
+  .cupertino-switch::after {
     content: "";
     position: absolute;
     inset: -8px -4px;
   }
-  .cn-switch[data-size="sm"] {
+  .cupertino-switch[data-size="sm"] {
     --switch-track-w: 48px;
     --switch-track-h: 22px;
     --switch-w: 29px;
@@ -553,24 +553,24 @@
     --switch-w-pressed: 35px;
     --switch-h: 18px;
   }
-  .cn-switch[data-checked] {
+  .cupertino-switch[data-checked] {
     --switch-track: var(--ios-green);
     --switch-copy: var(--ios-green);
     --switch-x: calc(var(--switch-track-w) - 4px - var(--switch-w));
   }
-  .cn-switch[data-switch-preview="on"] {
+  .cupertino-switch[data-switch-preview="on"] {
     --switch-track: var(--ios-green);
     --switch-copy: var(--ios-green);
   }
-  .cn-switch[data-switch-preview="off"] {
+  .cupertino-switch[data-switch-preview="off"] {
     --switch-track: var(--ios-fill-secondary);
     --switch-copy: transparent;
   }
-  .cn-switch[data-disabled] {
+  .cupertino-switch[data-disabled] {
     opacity: 0.4;
     cursor: not-allowed;
   }
-  .cn-switch-thumb {
+  .cupertino-switch-thumb {
     position: relative;
     isolation: isolate;
     flex-shrink: 0;
@@ -587,11 +587,11 @@
       box-shadow 200ms ease;
     will-change: translate;
   }
-  .cn-switch-thumb .cn-glass-wash {
+  .cupertino-switch-thumb .cupertino-glass-wash {
     transition: background-color 180ms ease;
   }
   /* Larger than the track so the lens never samples past its edge. */
-  .cn-switch-copy {
+  .cupertino-switch-copy {
     position: absolute;
     top: -10px;
     left: -12px;
@@ -604,25 +604,25 @@
       --switch-x 360ms var(--ios-spring),
       background-color 220ms ease;
   }
-  .cn-switch[data-switch-dragging] .cn-switch-thumb,
-  .cn-switch[data-switch-dragging] .cn-switch-copy {
+  .cupertino-switch[data-switch-dragging] .cupertino-switch-thumb,
+  .cupertino-switch[data-switch-dragging] .cupertino-switch-copy {
     transition:
       --switch-w 300ms var(--ios-spring),
       background-color 220ms ease;
   }
-  .cn-switch:active:not([data-disabled]):not([aria-readonly="true"]),
-  .cn-switch[data-switch-dragging] {
+  .cupertino-switch:active:not([data-disabled]):not([aria-readonly="true"]),
+  .cupertino-switch[data-switch-dragging] {
     --switch-w: var(--switch-w-pressed);
     --glass-wash: rgb(255 255 255 / 30%);
   }
-  .cn-switch:not([data-checked]):not([data-switch-preview="on"]):active:not([data-disabled]):not(
-      [aria-readonly="true"]
-    ),
-  .cn-switch:not([data-checked]):not([data-switch-preview="on"])[data-switch-dragging] {
+  .cupertino-switch:not([data-checked]):not([data-switch-preview="on"]):active:not(
+      [data-disabled]
+    ):not([aria-readonly="true"]),
+  .cupertino-switch:not([data-checked]):not([data-switch-preview="on"])[data-switch-dragging] {
     --glass-wash: rgb(255 255 255 / 72%);
   }
-  .cn-switch:active:not([data-disabled]):not([aria-readonly="true"]) .cn-switch-thumb,
-  .cn-switch[data-switch-dragging] .cn-switch-thumb {
+  .cupertino-switch:active:not([data-disabled]):not([aria-readonly="true"]) .cupertino-switch-thumb,
+  .cupertino-switch[data-switch-dragging] .cupertino-switch-thumb {
     box-shadow:
       0 6px 14px rgb(0 0 0 / 18%),
       0 3px 2px rgb(0 0 0 / 5%);
@@ -631,7 +631,7 @@
   /* ---------------------------------------------------------------------------
    * Slider: 6px track, 24×20 capsule thumb that grows into a lens while pressed.
    * ------------------------------------------------------------------------ */
-  .cn-slider {
+  .cupertino-slider {
     min-width: 0;
     --slider-thumb-w: 24px;
     --slider-thumb-h: 20px;
@@ -640,7 +640,7 @@
     --slider-stretch: 1;
     --slider-squash: 1;
   }
-  .cn-slider-control {
+  .cupertino-slider-control {
     position: relative;
     display: flex;
     height: 44px;
@@ -650,12 +650,12 @@
     user-select: none;
     container-type: inline-size;
   }
-  .cn-slider-control[data-orientation="vertical"] {
+  .cupertino-slider-control[data-orientation="vertical"] {
     height: 100%;
     justify-content: center;
     container-type: size;
   }
-  .cn-slider-track {
+  .cupertino-slider-track {
     position: relative;
     height: 6px;
     width: 100%;
@@ -663,22 +663,22 @@
     border-radius: 999px;
     background: var(--ios-fill);
   }
-  .cn-slider-track[data-orientation="vertical"] {
+  .cupertino-slider-track[data-orientation="vertical"] {
     height: 100%;
     width: 6px;
   }
-  .cn-slider-fill {
+  .cupertino-slider-fill {
     position: absolute;
     border-radius: 999px;
     background: var(--ios-blue);
   }
-  .cn-slider-fill[data-orientation="horizontal"] {
+  .cupertino-slider-fill[data-orientation="horizontal"] {
     height: 100%;
   }
-  .cn-slider-fill[data-orientation="vertical"] {
+  .cupertino-slider-fill[data-orientation="vertical"] {
     width: 100%;
   }
-  .cn-slider-thumb {
+  .cupertino-slider-thumb {
     /*
      * The handle grows past the thumb by the press outset plus the velocity stretch. Resizing
      * instead of scaling keeps the refracted copy aligned with the real track.
@@ -696,16 +696,16 @@
     outline: none;
     transition: --slider-outset 320ms var(--ios-spring);
   }
-  .cn-slider-thumb::after {
+  .cupertino-slider-thumb::after {
     content: "";
     position: absolute;
     inset: -12px -8px;
   }
-  .cn-slider-thumb:has(:focus-visible) {
+  .cupertino-slider-thumb:has(:focus-visible) {
     outline: 3px solid color-mix(in srgb, var(--ios-blue) 75%, transparent);
     outline-offset: 4px;
   }
-  .cn-slider-handle {
+  .cupertino-slider-handle {
     --glass-wash: #fff;
     position: absolute;
     inset: calc(-1 * var(--slider-outset-y)) calc(-1 * var(--slider-outset-x));
@@ -717,14 +717,14 @@
     transition: box-shadow 220ms ease;
     will-change: inset;
   }
-  .cn-slider-handle .cn-glass-wash {
+  .cupertino-slider-handle .cupertino-glass-wash {
     transition: background-color 160ms ease;
   }
   /*
    * Aligned copy of the track and fill. The track is painted in its opaque equivalent, so the copy
    * covers the real translucent track under the lens instead of darkening it.
    */
-  .cn-slider-copy {
+  .cupertino-slider-copy {
     position: absolute;
     top: 50%;
     height: 6px;
@@ -738,7 +738,7 @@
     overflow: hidden;
   }
   /* The real fill ends under the thumb center, which sits thumb-w/2 + progress × (track − thumb-w) in. */
-  .cn-slider-copy::before {
+  .cupertino-slider-copy::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -752,15 +752,15 @@
     border-radius: 999px;
     background: var(--ios-blue);
   }
-  .cn-slider[data-orientation="vertical"] .cn-slider-copy {
+  .cupertino-slider[data-orientation="vertical"] .cupertino-slider-copy {
     display: none;
   }
-  .cn-slider:not([data-disabled]):is([data-dragging], :active) .cn-slider-thumb,
-  .cn-slider:not([data-disabled]) .cn-slider-thumb:active {
+  .cupertino-slider:not([data-disabled]):is([data-dragging], :active) .cupertino-slider-thumb,
+  .cupertino-slider:not([data-disabled]) .cupertino-slider-thumb:active {
     --slider-outset: var(--slider-outset-pressed);
   }
-  .cn-slider:not([data-disabled]):is([data-dragging], :active) .cn-slider-handle,
-  .cn-slider:not([data-disabled]) .cn-slider-thumb:active .cn-slider-handle {
+  .cupertino-slider:not([data-disabled]):is([data-dragging], :active) .cupertino-slider-handle,
+  .cupertino-slider:not([data-disabled]) .cupertino-slider-thumb:active .cupertino-slider-handle {
     --glass-wash: rgb(255 255 255 / 22%);
     box-shadow:
       0 8px 18px rgb(0 0 0 / 16%),
@@ -772,14 +772,14 @@
    * between segments and follows the pointer while scrubbing. The lens refracts
    * a copy of the segments that counter-translates with it.
    * ------------------------------------------------------------------------ */
-  .cn-tab-list,
-  .cn-segment-list {
+  .cupertino-tab-list,
+  .cupertino-segment-list {
     touch-action: pan-y;
     user-select: none;
     container-type: inline-size;
   }
-  .cn-tab-indicator,
-  .cn-segment-indicator {
+  .cupertino-tab-indicator,
+  .cupertino-segment-indicator {
     --indicator-x: var(--active-tab-left);
     --indicator-inset: 4px;
     /* The lens bends only while it moves under a drag; at rest it shows the highlighted copy plain. */
@@ -801,29 +801,29 @@
       box-shadow 240ms ease;
     will-change: translate, width;
   }
-  .cn-tab-indicator {
+  .cupertino-tab-indicator {
     --glass-wash: rgb(255 255 255 / 10%);
     box-shadow:
       0 2px 8px rgb(0 0 0 / 6%),
       0 0.5px 1px rgb(0 0 0 / 4%);
   }
-  .cn-segment-indicator {
+  .cupertino-segment-indicator {
     --glass-wash: rgb(255 255 255 / 8%);
     --indicator-inset: 2px;
     box-shadow:
       0 3px 8px rgb(0 0 0 / 12%),
       0 3px 1px rgb(0 0 0 / 4%);
   }
-  .cn-tab-indicator .cn-glass-wash,
-  .cn-segment-indicator .cn-glass-wash {
+  .cupertino-tab-indicator .cupertino-glass-wash,
+  .cupertino-segment-indicator .cupertino-glass-wash {
     transition: background-color 200ms ease;
   }
   /* Tabs "line" variant: text tabs with a 2px underline instead of the glass pill. */
-  .cn-segment-list[data-variant="line"] {
+  .cupertino-segment-list[data-variant="line"] {
     min-height: 36px;
     padding: 0;
   }
-  .cn-segment-list[data-variant="line"] > .cn-segment-indicator {
+  .cupertino-segment-list[data-variant="line"] > .cupertino-segment-indicator {
     top: auto;
     bottom: 0;
     height: 2px;
@@ -831,17 +831,17 @@
     background: var(--ios-blue);
     box-shadow: none;
   }
-  .cn-segment-list[data-variant="line"] > .cn-segment-trigger {
+  .cupertino-segment-list[data-variant="line"] > .cupertino-segment-trigger {
     font-size: 15px;
     line-height: 20px;
     color: var(--ios-secondary);
   }
-  .cn-segment-list[data-variant="line"] > .cn-segment-trigger[data-active] {
+  .cupertino-segment-list[data-variant="line"] > .cupertino-segment-trigger[data-active] {
     color: var(--ios-label);
     font-weight: 600;
   }
-  .cn-tab-copy,
-  .cn-segment-copy {
+  .cupertino-tab-copy,
+  .cupertino-segment-copy {
     position: absolute;
     top: calc(-1 * var(--indicator-inset));
     left: 0;
@@ -854,35 +854,38 @@
    * The lens shows the highlighted copy; the real selected label hides underneath it. The copy is
    * its own tab list, so these rules never match it.
    */
-  .cn-tab-copy {
+  .cupertino-tab-copy {
     background: var(--tab-copy-fill, rgb(255 255 255 / 40%));
   }
-  .cn-segment-copy {
+  .cupertino-segment-copy {
     background: var(--ios-surface);
   }
-  [data-glass-copy] .cn-tab-trigger,
-  [data-glass-copy] .cn-tab-trigger[data-active] {
+  [data-glass-copy] .cupertino-tab-trigger,
+  [data-glass-copy] .cupertino-tab-trigger[data-active] {
     color: var(--ios-blue);
   }
-  [data-glass-copy] .cn-segment-trigger,
-  [data-glass-copy] .cn-segment-trigger[data-active] {
+  [data-glass-copy] .cupertino-segment-trigger,
+  [data-glass-copy] .cupertino-segment-trigger[data-active] {
     font-weight: 600;
     color: var(--ios-label);
   }
-  .cn-tab-list:not([data-scrubbing]):not([data-glass-copy]) > .cn-tab-trigger[data-active],
-  .cn-segment-list:not([data-scrubbing]):not([data-glass-copy]) > .cn-segment-trigger[data-active],
-  [data-scrubbing]:not([data-glass-copy]) > .cn-tab-trigger[data-under-lens],
-  [data-scrubbing]:not([data-glass-copy]) > .cn-segment-trigger[data-under-lens] {
+  .cupertino-tab-list:not([data-scrubbing]):not([data-glass-copy])
+    > .cupertino-tab-trigger[data-active],
+  .cupertino-segment-list:not([data-scrubbing]):not([data-glass-copy])
+    > .cupertino-segment-trigger[data-active],
+  [data-scrubbing]:not([data-glass-copy]) > .cupertino-tab-trigger[data-under-lens],
+  [data-scrubbing]:not([data-glass-copy]) > .cupertino-segment-trigger[data-under-lens] {
     color: transparent;
   }
-  [data-scrubbing]:not([data-glass-copy]) > .cn-tab-trigger[data-active]:not([data-under-lens]) {
+  [data-scrubbing]:not([data-glass-copy])
+    > .cupertino-tab-trigger[data-active]:not([data-under-lens]) {
     color: var(--ios-secondary);
   }
-  .cn-segment-copy .cn-segment-trigger::before {
+  .cupertino-segment-copy .cupertino-segment-trigger::before {
     display: none;
   }
-  [data-scrubbing] > .cn-tab-indicator,
-  [data-scrubbing] > .cn-segment-indicator {
+  [data-scrubbing] > .cupertino-tab-indicator,
+  [data-scrubbing] > .cupertino-segment-indicator {
     --glass-bend: 1;
     --indicator-x: var(--drag-left);
     width: var(--drag-width);
@@ -890,47 +893,47 @@
     scale: calc(var(--drag-stretch, 1) * 1.06) calc(var(--drag-squash, 1) * 1.06);
     transition: box-shadow 240ms ease;
   }
-  [data-scrubbing] .cn-tab-copy,
-  [data-scrubbing] .cn-segment-copy {
+  [data-scrubbing] .cupertino-tab-copy,
+  [data-scrubbing] .cupertino-segment-copy {
     transition: none;
   }
-  [data-scrubbing] > .cn-tab-indicator {
+  [data-scrubbing] > .cupertino-tab-indicator {
     --glass-wash: rgb(255 255 255 / 6%);
     box-shadow:
       0 10px 24px rgb(0 0 0 / 14%),
       0 1px 2px rgb(0 0 0 / 5%);
   }
-  [data-scrubbing] > .cn-segment-indicator {
+  [data-scrubbing] > .cupertino-segment-indicator {
     --glass-wash: rgb(255 255 255 / 6%);
     box-shadow:
       0 10px 24px rgb(0 0 0 / 16%),
       0 1px 2px rgb(0 0 0 / 5%);
   }
-  .dark .cn-tab-list,
-  [data-ios-theme="dark"] .cn-tab-list {
+  .dark .cupertino-tab-list,
+  [data-ios-theme="dark"] .cupertino-tab-list {
     --tab-copy-fill: rgb(255 255 255 / 14%);
   }
-  .dark .cn-segment-copy,
-  [data-ios-theme="dark"] .cn-segment-copy {
+  .dark .cupertino-segment-copy,
+  [data-ios-theme="dark"] .cupertino-segment-copy {
     background: rgb(99 99 102);
   }
   [data-pointer-focus] > [role="tab"]:focus-visible {
     outline: none;
   }
-  .cn-tab-list[data-orientation="vertical"],
-  .cn-segment-list[data-orientation="vertical"] {
+  .cupertino-tab-list[data-orientation="vertical"],
+  .cupertino-segment-list[data-orientation="vertical"] {
     flex-direction: column;
   }
-  [data-orientation="vertical"] > .cn-tab-indicator,
-  [data-orientation="vertical"] > .cn-segment-indicator {
+  [data-orientation="vertical"] > .cupertino-tab-indicator,
+  [data-orientation="vertical"] > .cupertino-segment-indicator {
     top: 0;
     left: var(--indicator-inset);
     width: calc(100% - var(--indicator-inset) * 2);
     height: var(--active-tab-height);
     translate: 0 var(--active-tab-top);
   }
-  [data-orientation="vertical"] .cn-tab-copy,
-  [data-orientation="vertical"] .cn-segment-copy {
+  [data-orientation="vertical"] .cupertino-tab-copy,
+  [data-orientation="vertical"] .cupertino-segment-copy {
     display: none;
   }
   [data-slot="tab-bar"] [role="tabpanel"][inert],
@@ -938,7 +941,7 @@
     display: none;
   }
   /* Segment dividers hide next to the selected segment. */
-  .cn-segment-trigger + .cn-segment-trigger::before {
+  .cupertino-segment-trigger + .cupertino-segment-trigger::before {
     content: "";
     position: absolute;
     left: -0.5px;
@@ -950,12 +953,12 @@
     opacity: 0.6;
     transition: opacity 200ms ease;
   }
-  .cn-segment-trigger[data-active]::before,
-  .cn-segment-trigger[data-active] + .cn-segment-trigger::before,
-  [data-scrubbing] .cn-segment-trigger::before {
+  .cupertino-segment-trigger[data-active]::before,
+  .cupertino-segment-trigger[data-active] + .cupertino-segment-trigger::before,
+  [data-scrubbing] .cupertino-segment-trigger::before {
     opacity: 0;
   }
-  .cn-segment-trigger {
+  .cupertino-segment-trigger {
     color: var(--ios-label);
     font-weight: 500;
     transition:
@@ -963,27 +966,28 @@
       scale 200ms var(--ios-ease),
       opacity 200ms ease;
   }
-  .cn-segment-trigger[data-active] {
+  .cupertino-segment-trigger[data-active] {
     font-weight: 600;
   }
-  .cn-segment-list:not([data-scrubbing]) > .cn-segment-trigger:active:not([data-active]) {
+  .cupertino-segment-list:not([data-scrubbing])
+    > .cupertino-segment-trigger:active:not([data-active]) {
     scale: 0.96;
     opacity: 0.6;
   }
-  .cn-tab-trigger {
+  .cupertino-tab-trigger {
     color: var(--ios-secondary);
     transition: color 220ms ease;
   }
-  .cn-tab-trigger[data-active] {
+  .cupertino-tab-trigger[data-active] {
     color: var(--ios-blue);
   }
-  .cn-tab-trigger svg {
+  .cupertino-tab-trigger svg {
     transition: scale 320ms var(--ios-spring-bounce);
   }
-  .cn-tab-trigger[data-active] svg {
+  .cupertino-tab-trigger[data-active] svg {
     scale: 1.06;
   }
-  .cn-tab-list:not([data-scrubbing]) > .cn-tab-trigger:active:not([data-active]) svg {
+  .cupertino-tab-list:not([data-scrubbing]) > .cupertino-tab-trigger:active:not([data-active]) svg {
     scale: 0.9;
   }
 
@@ -991,87 +995,87 @@
    * Overlays
    * ------------------------------------------------------------------------ */
   /* Alert: enters slightly enlarged, leaves slightly shrunk. Geometry lives on the element. */
-  .cn-alert {
+  .cupertino-alert {
     transform: translate(-50%, -50%);
     opacity: 1;
     transition:
       transform 360ms var(--ios-spring),
       opacity 200ms ease;
   }
-  .cn-alert[data-starting-style] {
+  .cupertino-alert[data-starting-style] {
     transform: translate(-50%, -50%) scale(1.08);
     opacity: 0;
   }
-  .cn-alert[data-ending-style] {
+  .cupertino-alert[data-ending-style] {
     transform: translate(-50%, -50%) scale(0.96);
     opacity: 0;
     transition-duration: 180ms, 160ms;
     transition-timing-function: var(--ios-ease), ease;
   }
-  .cn-alert-footer:has(> :nth-child(3)) {
+  .cupertino-alert-footer:has(> :nth-child(3)) {
     flex-direction: column;
   }
-  .cn-menu {
+  .cupertino-menu {
     transform-origin: var(--transform-origin);
     transition:
       transform 320ms var(--ios-spring),
       opacity 160ms ease;
   }
-  .cn-menu[data-starting-style],
-  .cn-menu[data-ending-style] {
+  .cupertino-menu[data-starting-style],
+  .cupertino-menu[data-ending-style] {
     opacity: 0;
     transform: scale(0.9);
   }
-  .cn-menu[data-ending-style] {
+  .cupertino-menu[data-ending-style] {
     transition-duration: 160ms, 120ms;
     transition-timing-function: var(--ios-ease), ease;
   }
-  .cn-sheet {
+  .cupertino-sheet {
     transform: translateY(
       calc(var(--drawer-snap-point-offset, 0px) + var(--drawer-swipe-movement-y, 0px))
     );
     transition: transform 420ms var(--ios-spring);
   }
-  .cn-sheet[data-starting-style],
-  .cn-sheet[data-ending-style] {
+  .cupertino-sheet[data-starting-style],
+  .cupertino-sheet[data-ending-style] {
     transform: translateY(100%);
   }
-  .cn-sheet[data-ending-style] {
+  .cupertino-sheet[data-ending-style] {
     transition-duration: 260ms;
     transition-timing-function: var(--ios-ease-in-out);
   }
-  .cn-sheet[data-swiping] {
+  .cupertino-sheet[data-swiping] {
     transition: none;
     user-select: none;
   }
-  .cn-sheet-backdrop {
+  .cupertino-sheet-backdrop {
     opacity: calc(1 - var(--drawer-swipe-progress, 0));
   }
-  .cn-sheet > .cn-glass-surface {
+  .cupertino-sheet > .cupertino-glass-surface {
     --glass-wash: rgb(var(--ios-glass-rgb) / 90%);
     --glass-blur: 16px;
   }
-  .cn-action-sheet {
+  .cupertino-action-sheet {
     transition:
       transform 420ms var(--ios-spring),
       opacity 200ms ease;
   }
-  .cn-action-sheet[data-starting-style],
-  .cn-action-sheet[data-ending-style] {
+  .cupertino-action-sheet[data-starting-style],
+  .cupertino-action-sheet[data-ending-style] {
     transform: translateY(40px);
     opacity: 0;
   }
-  .cn-action-sheet[data-ending-style] {
+  .cupertino-action-sheet[data-ending-style] {
     transition-duration: 200ms, 160ms;
     transition-timing-function: var(--ios-ease), ease;
   }
-  .cn-toast {
+  .cupertino-toast {
     transition:
       transform 420ms var(--ios-spring),
       opacity 200ms ease;
   }
-  .cn-toast[data-starting-style],
-  .cn-toast[data-ending-style] {
+  .cupertino-toast[data-starting-style],
+  .cupertino-toast[data-ending-style] {
     transform: translateY(-24px) scale(0.94);
     opacity: 0;
   }
@@ -1079,24 +1083,24 @@
   /* ---------------------------------------------------------------------------
    * Small controls
    * ------------------------------------------------------------------------ */
-  .cn-choice {
+  .cupertino-choice {
     transition:
       background-color 180ms ease,
       border-color 180ms ease,
       scale 320ms var(--ios-spring-bounce);
   }
-  .cn-choice:active:not([data-disabled]) {
+  .cupertino-choice:active:not([data-disabled]) {
     scale: 1.12;
     transition-duration: 120ms;
     transition-timing-function: var(--ios-ease);
   }
-  .cn-choice-indicator {
-    animation: cn-choice-in 320ms var(--ios-spring-bounce);
+  .cupertino-choice-indicator {
+    animation: cupertino-choice-in 320ms var(--ios-spring-bounce);
   }
-  .cn-ios:focus-visible .cn-choice-indicator {
+  .cupertino:focus-visible .cupertino-choice-indicator {
     animation: none;
   }
-  @keyframes cn-choice-in {
+  @keyframes cupertino-choice-in {
     from {
       opacity: 0;
       scale: 0.4;
@@ -1106,21 +1110,21 @@
       scale: 1;
     }
   }
-  .cn-page-dot {
+  .cupertino-page-dot {
     transition:
       scale 320ms var(--ios-spring-bounce),
       background-color 200ms ease;
   }
-  button:active > .cn-page-dot {
+  button:active > .cupertino-page-dot {
     scale: 1.4;
   }
-  .cn-spinner {
+  .cupertino-spinner {
     position: relative;
     display: inline-block;
     width: 20px;
     height: 20px;
   }
-  .cn-spinner > span {
+  .cupertino-spinner > span {
     position: absolute;
     left: 45%;
     top: 5%;
@@ -1130,10 +1134,10 @@
     background: currentColor;
     transform-origin: 50% 167%;
     transform: rotate(calc(var(--spoke) * 30deg));
-    animation: cn-spin 1s linear infinite;
+    animation: cupertino-spin 1s linear infinite;
     animation-delay: calc(var(--spoke) * -1s / 12);
   }
-  @keyframes cn-spin {
+  @keyframes cupertino-spin {
     0% {
       opacity: 1;
     }
@@ -1146,45 +1150,45 @@
    * App shell: master-detail navigation. Wide viewports show the list beside the
    * page; narrow ones stack them and push the page in from the right.
    * ------------------------------------------------------------------------ */
-  .cn-app-shell {
+  .cupertino-app-shell {
     --shell-drag: 0px;
     grid-template-columns: minmax(280px, 370px) minmax(0, 1fr);
   }
   /* Narrow: both panes share the cell; the page slides over the list. */
-  .cn-app-shell[data-mobile] {
+  .cupertino-app-shell[data-mobile] {
     grid-template-columns: minmax(0, 1fr);
   }
-  .cn-app-shell[data-mobile] > .cn-app-shell-list,
-  .cn-app-shell[data-mobile] > .cn-app-shell-page {
+  .cupertino-app-shell[data-mobile] > .cupertino-app-shell-list,
+  .cupertino-app-shell[data-mobile] > .cupertino-app-shell-page {
     grid-area: 1 / 1;
   }
-  .cn-app-shell[data-mobile] > .cn-app-shell-list {
+  .cupertino-app-shell[data-mobile] > .cupertino-app-shell-list {
     translate: 0 0;
     transition:
       translate 460ms var(--ios-spring),
       opacity 460ms var(--ios-spring);
   }
-  .cn-app-shell[data-mobile][data-detail] > .cn-app-shell-list {
+  .cupertino-app-shell[data-mobile][data-detail] > .cupertino-app-shell-list {
     translate: calc(-30% + var(--shell-drag) * 0.3) 0;
     opacity: 0.55;
   }
-  .cn-app-shell[data-mobile] > .cn-app-shell-page {
+  .cupertino-app-shell[data-mobile] > .cupertino-app-shell-page {
     z-index: 1;
     translate: 100% 0;
     box-shadow: -12px 0 32px rgb(0 0 0 / 10%);
     transition: translate 460ms var(--ios-spring);
     touch-action: pan-y;
   }
-  .cn-app-shell[data-mobile][data-detail] > .cn-app-shell-page {
+  .cupertino-app-shell[data-mobile][data-detail] > .cupertino-app-shell-page {
     translate: var(--shell-drag) 0;
   }
   @starting-style {
-    .cn-app-shell[data-mobile][data-detail] > .cn-app-shell-page {
+    .cupertino-app-shell[data-mobile][data-detail] > .cupertino-app-shell-page {
       translate: 100% 0;
     }
   }
-  .cn-app-shell[data-mobile] > .cn-app-shell-page[data-swiping],
-  .cn-app-shell[data-mobile]:has(> [data-swiping]) > .cn-app-shell-list {
+  .cupertino-app-shell[data-mobile] > .cupertino-app-shell-page[data-swiping],
+  .cupertino-app-shell[data-mobile]:has(> [data-swiping]) > .cupertino-app-shell-list {
     transition: none;
   }
 
@@ -1192,34 +1196,34 @@
    * Pointer devices
    * ------------------------------------------------------------------------ */
   @media (hover: hover) and (pointer: fine) {
-    .cn-switch:hover:not([data-disabled]):not([aria-readonly="true"]):not(:active):not(
+    .cupertino-switch:hover:not([data-disabled]):not([aria-readonly="true"]):not(:active):not(
         [data-switch-dragging]
       ) {
       --switch-w: var(--switch-w-hover);
     }
-    .cn-slider:not([data-disabled]):not([data-dragging]) .cn-slider-thumb:hover {
+    .cupertino-slider:not([data-disabled]):not([data-dragging]) .cupertino-slider-thumb:hover {
       --slider-outset: 2px;
     }
-    .cn-glass[data-interactive]:hover {
+    .cupertino-glass[data-interactive]:hover {
       box-shadow: var(--glass-shadow-lifted);
     }
-    .cn-press:hover:not(:disabled):not([data-disabled]):not(:active) {
+    .cupertino-press:hover:not(:disabled):not([data-disabled]):not(:active) {
       --glass-scale: 1.02;
     }
-    .cn-dim:hover:not(:disabled):not([data-disabled]) {
+    .cupertino-dim:hover:not(:disabled):not([data-disabled]) {
       opacity: 0.7;
     }
-    .cn-tab-trigger:hover:not([data-active]),
-    .cn-segment-trigger:hover:not([data-active]) {
+    .cupertino-tab-trigger:hover:not([data-active]),
+    .cupertino-segment-trigger:hover:not([data-active]) {
       color: var(--ios-label);
     }
-    .cn-tab-trigger:hover:not([data-active]) svg {
+    .cupertino-tab-trigger:hover:not([data-active]) svg {
       scale: 1.04;
     }
-    .cn-stepper-button:hover:not([data-disabled])::before {
+    .cupertino-stepper-button:hover:not([data-disabled])::before {
       opacity: 0.5;
     }
-    .cn-toolbar-button:hover {
+    .cupertino-toolbar-button:hover {
       background: var(--ios-fill-quaternary);
     }
   }
@@ -1228,84 +1232,84 @@
    * Accessibility and fallbacks
    * ------------------------------------------------------------------------ */
   @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-    .cn-glass-surface:not([data-lens]) > .cn-glass-wash {
+    .cupertino-glass-surface:not([data-lens]) > .cupertino-glass-wash {
       background: color-mix(in srgb, var(--ios-surface) 92%, transparent);
     }
   }
   @media (prefers-reduced-transparency: reduce) {
-    .cn-glass-backdrop {
+    .cupertino-glass-backdrop {
       -webkit-backdrop-filter: none;
       backdrop-filter: none;
     }
-    .cn-glass-surface > .cn-glass-wash {
+    .cupertino-glass-surface > .cupertino-glass-wash {
       background: var(--ios-surface);
     }
-    .cn-glass-refract,
-    .cn-glass-rim,
-    .cn-glass-light {
+    .cupertino-glass-refract,
+    .cupertino-glass-rim,
+    .cupertino-glass-light {
       display: none;
     }
   }
   @media (prefers-contrast: more) {
-    .cn-glass-backdrop {
+    .cupertino-glass-backdrop {
       -webkit-backdrop-filter: none;
       backdrop-filter: none;
     }
-    .cn-glass-surface {
+    .cupertino-glass-surface {
       border: 1px solid var(--ios-label);
     }
-    .cn-glass-surface > .cn-glass-wash {
+    .cupertino-glass-surface > .cupertino-glass-wash {
       background: var(--ios-surface);
     }
-    .cn-glass-refract,
-    .cn-glass-rim,
-    .cn-glass-light {
+    .cupertino-glass-refract,
+    .cupertino-glass-rim,
+    .cupertino-glass-light {
       display: none;
     }
   }
   @media (forced-colors: active) {
-    .cn-glass-surface {
+    .cupertino-glass-surface {
       border: 1px solid CanvasText;
     }
-    .cn-glass-surface > .cn-glass-wash {
+    .cupertino-glass-surface > .cupertino-glass-wash {
       background: Canvas;
     }
-    .cn-switch {
+    .cupertino-switch {
       border: 1px solid ButtonText;
     }
-    .cn-switch[data-checked],
-    .cn-segment-indicator,
-    .cn-tab-indicator {
+    .cupertino-switch[data-checked],
+    .cupertino-segment-indicator,
+    .cupertino-tab-indicator {
       background: Highlight;
     }
-    .cn-switch-thumb {
+    .cupertino-switch-thumb {
       background: ButtonText;
     }
-    .cn-glass-refract,
-    .cn-glass-rim,
-    .cn-glass-light {
+    .cupertino-glass-refract,
+    .cupertino-glass-rim,
+    .cupertino-glass-light {
       display: none;
     }
   }
   @media (prefers-reduced-motion: reduce) {
-    .cn-ios,
-    .cn-ios *,
-    .cn-ios::before,
-    .cn-ios::after {
+    .cupertino,
+    .cupertino *,
+    .cupertino::before,
+    .cupertino::after {
       animation: none;
       transition: none;
       scroll-behavior: auto;
     }
-    .cn-press,
-    .cn-glass,
+    .cupertino-press,
+    .cupertino-glass,
     [data-glass-host] {
       translate: none;
       scale: none;
     }
-    .cn-choice:active:not([data-disabled]) {
+    .cupertino-choice:active:not([data-disabled]) {
       scale: none;
     }
-    .cn-spinner > span {
+    .cupertino-spinner > span {
       opacity: 0.6;
     }
   }

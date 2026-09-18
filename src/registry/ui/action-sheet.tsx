@@ -13,12 +13,12 @@ function ActionSheetContent({ className, ...props }: DialogPrimitive.Popup.Props
     <DialogPrimitive.Portal>
       <DialogPrimitive.Backdrop
         data-slot="action-sheet-overlay"
-        className="cn-ios fixed inset-0 z-50 bg-black/24 transition-opacity duration-[240ms] data-starting-style:opacity-0 data-ending-style:opacity-0"
+        className="cupertino fixed inset-0 z-50 bg-black/24 transition-opacity duration-[240ms] data-starting-style:opacity-0 data-ending-style:opacity-0"
       />
       <DialogPrimitive.Popup
         data-slot="action-sheet-content"
         className={cn(
-          "cn-ios cn-action-sheet fixed inset-x-1.5 bottom-[max(6px,calc(env(safe-area-inset-bottom)-6px))] z-51 mx-auto max-h-[calc(100dvh-28px)] max-w-[calc(var(--container-sm)+12px)] overflow-y-auto p-1.5 text-foreground outline-none",
+          "cupertino cupertino-action-sheet fixed inset-x-1.5 bottom-[max(6px,calc(env(safe-area-inset-bottom)-6px))] z-51 mx-auto max-h-[calc(100dvh-28px)] max-w-[calc(var(--container-sm)+12px)] overflow-y-auto p-1.5 text-foreground outline-none",
           className,
         )}
         {...props}
@@ -32,7 +32,7 @@ function ActionSheetGroup({ className, ...props }: React.ComponentProps<"div">) 
       variant="opaque"
       interactive={false}
       data-slot="action-sheet-group"
-      className={cn("cn-panel overflow-hidden rounded-[30px] p-2", className)}
+      className={cn("cupertino-panel overflow-hidden rounded-[30px] p-2", className)}
       {...props}
     />
   )
@@ -79,7 +79,7 @@ function ActionSheetCancel({ className, children, ...props }: DialogPrimitive.Cl
     <DialogPrimitive.Close
       data-slot="action-sheet-cancel"
       className={cn(
-        "cn-press cn-material mt-2 min-h-14 w-full rounded-full text-[17px] font-semibold text-foreground",
+        "cupertino-press cupertino-material mt-2 min-h-14 w-full rounded-full text-[17px] font-semibold text-foreground",
         className,
       )}
       {...props}

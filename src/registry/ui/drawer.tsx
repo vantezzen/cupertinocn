@@ -64,7 +64,7 @@ function DrawerOverlay({ className, ...props }: DrawerPrimitive.Backdrop.Props) 
     <DrawerPrimitive.Backdrop
       data-slot="drawer-overlay"
       className={cn(
-        "cn-ios cn-sheet-backdrop fixed inset-0 z-50 bg-black/24 transition-opacity duration-[240ms] data-starting-style:opacity-0 data-ending-style:opacity-0",
+        "cupertino cupertino-sheet-backdrop fixed inset-0 z-50 bg-black/24 transition-opacity duration-[240ms] data-starting-style:opacity-0 data-ending-style:opacity-0",
         className,
       )}
       {...props}
@@ -96,7 +96,7 @@ function DrawerContent({ className, children, ...props }: DrawerPrimitive.Popup.
           data-slot="drawer-content"
           data-snap-points={hasSnapPoints ? "" : undefined}
           className={cn(
-            "cn-ios cn-sheet cn-material pointer-events-auto relative flex data-snap-points:h-[calc(100dvh-3rem)] max-h-[calc(100dvh-3rem)] w-full max-w-lg flex-col overflow-hidden rounded-t-[36px] bg-transparent pb-[env(safe-area-inset-bottom)] text-foreground shadow-[0_-8px_40px_-12px_rgb(0_0_0/25%)] outline-none",
+            "cupertino cupertino-sheet cupertino-material pointer-events-auto relative flex data-snap-points:h-[calc(100dvh-3rem)] max-h-[calc(100dvh-3rem)] w-full max-w-lg flex-col overflow-hidden rounded-t-[36px] bg-transparent pb-[env(safe-area-inset-bottom)] text-foreground shadow-[0_-8px_40px_-12px_rgb(0_0_0/25%)] outline-none",
             className,
           )}
           {...props}

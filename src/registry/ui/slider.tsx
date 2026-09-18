@@ -74,7 +74,7 @@ function Slider({
       ref={root}
       data-slot="slider"
       className={cn(
-        "cn-ios cn-slider w-full data-disabled:opacity-40 data-vertical:h-40 data-vertical:w-11",
+        "cupertino cupertino-slider w-full data-disabled:opacity-40 data-vertical:h-40 data-vertical:w-11",
         className,
       )}
       style={(state) =>
@@ -101,12 +101,12 @@ function Slider({
       {...props}
     >
       <SliderPrimitive.Control
-        className="cn-slider-control"
+        className="cupertino-slider-control"
         onPointerDown={motion.onPointerDown}
         onPointerMove={motion.onPointerMove}
       >
-        <SliderPrimitive.Track className="cn-slider-track">
-          <SliderPrimitive.Indicator className="cn-slider-fill" />
+        <SliderPrimitive.Track className="cupertino-slider-track">
+          <SliderPrimitive.Indicator className="cupertino-slider-fill" />
         </SliderPrimitive.Track>
         {thumbs.map((_, index) => (
           <SliderPrimitive.Thumb
@@ -114,21 +114,21 @@ function Slider({
             index={index}
             aria-label={getAriaLabel?.(index) ?? label}
             aria-labelledby={labelledBy}
-            className="cn-slider-thumb"
+            className="cupertino-slider-thumb"
             style={(state) =>
               ({
                 "--slider-progress": fraction(state.values[index] ?? 0, state.min, state.max),
               }) as React.CSSProperties
             }
           >
-            <span className="cn-slider-handle">
+            <span className="cupertino-slider-handle">
               <GlassSurface
                 variant="clear"
                 strength={0.7}
                 rim={0.9}
                 chroma={false}
                 interactive={false}
-                refract={<span aria-hidden="true" className="cn-slider-copy" />}
+                refract={<span aria-hidden="true" className="cupertino-slider-copy" />}
               />
             </span>
           </SliderPrimitive.Thumb>
